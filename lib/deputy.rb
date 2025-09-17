@@ -1,9 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
 
-# Scrappe la liste des députés depuis le site de l'Assemblée Nationale.
-# Pour chaque député, un hash est créé avec :prenom, :nom et :email (initialisé à nil).
-# Retourne un tableau de hashes.
 def deputy_scrapper
   # URL de la liste des députés
   url = 'https://www2.assemblee-nationale.fr/deputes/liste/alphabetique'
@@ -60,5 +57,5 @@ def deputy_email(url)
 end
 
 puts "Patientez, le traitement est long !"
-# Affiche la liste des 20 premiers députés sinon traitement trop long
+# Affiche la liste des 10 premiers députés sinon traitement trop long
 puts(deputy_scrapper.map{ |k,v| "#{k} => #{v}" }.sort)
