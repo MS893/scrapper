@@ -14,9 +14,11 @@ def deputy_scrapper
     # Sélectionne tous les liens <a> contenant les noms des députés dans la liste
     deputy_links = page.xpath('//*[@id="deputes-list"]//a')
 
-    deputy_links.first(10).each do |link|
+    deputy_links.first(20).each do |link|
 
       full_name = link.text.strip
+      puts "> #{full_name}"
+
       # Ignore les entrées vides ou invalides
       next if full_name.empty? || !full_name.start_with?('M. ', 'Mme ')
 
@@ -57,5 +59,5 @@ def deputy_email(url)
 end
 
 puts "Patientez, le traitement est long !"
-# Affiche la liste des 10 premiers députés sinon traitement trop long
-puts(deputy_scrapper.map{ |k,v| "#{k} => #{v}" }.sort)
+# Affiche la liste des 20 premiers députés sinon traitement trop long
+puts(deputy_scrapper.map{ |k,v| "#{k} => #{v}" })
