@@ -46,7 +46,7 @@
 
 ## :dart: About ##
 
-Scrapper
+Scrapper. NO SPEC BECAUSE NOT NECESSARY.
 
 ## :sparkles: Features ##
 
