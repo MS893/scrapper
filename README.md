@@ -50,8 +50,8 @@ Scrapper
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: darktrader : return cryptos and values;\
-:heavy_check_mark: emails (Mairie christmas) : return french city hall's emails of Val d'Oise;\
+:heavy_check_mark: darktrader.rb : return cryptos and values;\
+:heavy_check_mark: emails.rb (Mairie christmas) : return french city hall's emails of Val d'Oise;\
 :heavy_check_mark: deputy.rb (Cher député) : return the 10 first french deputies's emails (too long for all);
 
 ## :rocket: Technologies ##
