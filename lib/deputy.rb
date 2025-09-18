@@ -61,6 +61,8 @@ def deputy_email(url)
   end
 end
 
+
+
 # Pour éviter que RSPEC exécute le code ci-dessus.
 if __FILE__ == $0
   result = deputy_scrapper()

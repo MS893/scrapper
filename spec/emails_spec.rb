@@ -1,4 +1,4 @@
-require_relative '../lib/emails.rb'
+require_relative '../lib/emails'
 
 # 1) le fonctionnement de base de ton programme (pas d'erreur ni de retour vide)
 # 2) que ton programme sort bien un array cohérent (vérifier la présence de Ableiges, vérifier que l’array est de taille cohérente, etc.).
@@ -21,7 +21,7 @@ describe 'array consistent' do
   # Hint: array seems ok
 
   it 'tells me if one townhall exist' do
-    expect(result.any? { |clé, valeur| clé.key?('Ableiges') }).to eq(true)
+    expect(result.any? { |townhall_hash| townhall_hash["townhall_name"] == 'Ableiges' }).to eq(true)
   end
 
   it 'tells me if the array size is consistent' do

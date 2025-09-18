@@ -52,6 +52,9 @@ def get_townhall_email(url)
   end
 end
 
+
+
+# NB : pour afficher toutes les mairies du Val d'Oise, il faudrait faire un POST sur le bouton NEXT et recommencer
 # Pour éviter que RSPEC exécute le code ci-dessus.
 if __FILE__ == $0
   result = townhall_scrapper()

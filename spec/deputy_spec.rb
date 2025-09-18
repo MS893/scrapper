@@ -21,7 +21,7 @@ describe 'array consistent' do
   # Hint: array seems ok
 
   it 'tells me if one deputy exist' do
-    expect(result.map { |fn, ln, em| fn.key?('Nadège') }).to eq(true)
+    expect(result.any? { |deputy_hash| deputy_hash["first_name"] == 'Nadège' }).to eq(true)
   end
 
   it 'tells me if the array size is consistent' do

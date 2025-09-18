@@ -30,6 +30,8 @@ def crypto_scrapper
 
 end
 
+
+
 # Pour éviter que RSPEC exécute le code ci-dessus.
 if __FILE__ == $0
   result = crypto_scrapper()
