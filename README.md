@@ -46,13 +46,13 @@
 
 ## :dart: About ##
 
-Scrapper. NO SPEC BECAUSE NOT NECESSARY.
+Scrapper. Parsing web sites.
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: darktrader.rb : return cryptos and values;\
-:heavy_check_mark: emails.rb (Mairie christmas) : return french city hall's emails of Val d'Oise;\
-:heavy_check_mark: deputy.rb (Cher député) : return the 10 first french deputies's emails (too long for all);
+:heavy_check_mark: darktrader.rb : return cryptos and values (only the first visibles on website);\
+:heavy_check_mark: emails.rb (Mairie christmas) : return 20 first townhall's names and emails of Val d'Oise;\
+:heavy_check_mark: deputy.rb (Cher député) : return the 10 first french deputies's emails (too long for more);
 
 ## :rocket: Technologies ##
 

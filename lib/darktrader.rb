@@ -2,9 +2,12 @@ require 'http'
 require 'nokogiri'
 require 'open-uri'
 
-def crypto_scrapper 
+def crypto_scrapper
+
   cryptos = []
+
   begin
+    
     url = "https://coinmarketcap.com/all/views/all/"
     page = Nokogiri::HTML(URI.open(url))
     
@@ -20,9 +23,20 @@ def crypto_scrapper
 
   rescue => e
     puts "Erreur : #{e}"
+    cryptos[0] = "err"
   end
+
   cryptos
+
 end
 
-puts crypto_scrapper
-# toutes les valeurs ne sont pas affichées et le sont lorsque l'on scroll la page vers le bas
+# Pour éviter que RSPEC exécute le code ci-dessus.
+if __FILE__ == $0
+  result = crypto_scrapper()
+  if (result[0] == "err") || (result.empty?)
+    puts "Impossible d'afficher les cryptos, le site internet est peut-être en maintenance"
+  else
+    puts result.map{ |k,v| "#{k} => #{v}" }
+    puts "NB : seules les valeurs générées la 1ere fois sont affichées, il faudrait scroller pour afficher la suite"
+  end
+end

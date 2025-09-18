@@ -9,6 +9,7 @@ def deputy_scrapper
   deputies_list = []
 
   begin
+
     page = Nokogiri::HTML(URI.open(url))
 
     # Sélectionne tous les liens <a> contenant les noms des députés dans la liste
@@ -17,7 +18,7 @@ def deputy_scrapper
     deputy_links.first(20).each do |link|
 
       full_name = link.text.strip
-      puts "> #{full_name}"
+      print "*" # sorte de barre de progression (traitement long)
 
       # Ignore les entrées vides ou invalides
       next if full_name.empty? || !full_name.start_with?('M. ', 'Mme ')
@@ -39,11 +40,13 @@ def deputy_scrapper
         "email" => email[1]
       }
     end
+
   rescue OpenURI::HTTPError => e
     puts "Erreur d'accès à la page principale: #{e.message}"
   end
 
   deputies_list
+
 end
 
 # récupère les emails
@@ -58,6 +61,14 @@ def deputy_email(url)
   end
 end
 
-puts "Patientez, le traitement est long !"
-# Affiche la liste des 20 premiers députés sinon traitement trop long
-puts(deputy_scrapper.map{ |k,v| "#{k} => #{v}" })
+# Pour éviter que RSPEC exécute le code ci-dessus.
+if __FILE__ == $0
+  result = deputy_scrapper()
+  if (result[0] == "err") || (result.empty?)
+    puts "Impossible d'afficher les députés le site internet est peut-être en maintenance"
+  else
+    puts " Liste des 20 premiers députés du site (trop lent pour tout afficher) :"
+    # Affiche la liste des 20 premiers députés sinon traitement trop long
+    puts(result.map{ |k,v| "#{k} => #{v}" })
+  end
+end
